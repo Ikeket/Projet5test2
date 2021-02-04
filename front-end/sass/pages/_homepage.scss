@@ -1,0 +1,41 @@
+.product {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	&__box {
+		background-color: none;
+		margin: 20px;
+		min-width: 350px;
+		transition: 500ms linear background-color;
+		width: 30%;
+		@include border-box;
+		@include box-shadow;
+		@include radius15;
+		&:hover {
+			background-color: $secondary-color;
+			transform: scale(1.1);
+			transition: 250ms linear background-color;
+		}
+		&__link {
+			align-items: center;
+			display: flex;
+			flex-direction: column-reverse;
+			width: 100%;
+			@include flex-CC;
+		}
+		&__text {
+			padding: 20px;
+			height: 70px;
+		}
+		&-price {
+			margin-left: 15px;
+		}
+		& img {
+			border-radius: 15px 15px 0 0;
+			height: 230px;
+			object-fit: cover;
+			object-position: top;
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,29 @@
+#header {
+	align-items: center;
+	background-color: $secondary-color;
+	display: flex;
+	flex-direction: row;
+	height: 70px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	&__title {
+		align-items: baseline;
+		display: flex;
+	}
+}
+
+.navbar {
+	&__link {
+		align-items: baseline;
+		display: flex;
+		& li {
+			margin-right: 25px;
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+body {
+	background-color: $secondary-color;
+}
+section {
+	padding: 50px 0;
+}
+#main {
+	background-color: white;
+}
+#main__container {
+	display: flex;
+	flex-direction: column;
+	min-height: 600px;
+}
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	width: 80%;
+	@include border-box;
+}

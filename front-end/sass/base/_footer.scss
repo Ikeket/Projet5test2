@@ -1,0 +1,49 @@
+#footer {
+	align-items: center;
+	background-color: $secondary-color;
+	display: flex;
+	flex-direction: row;
+}
+
+.footer {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	width: 100%;
+	&__container {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding: 15px 0;
+		margin: 0 auto;
+		width: 80%;
+	}
+	&__newsletter {
+		display: flex;
+		flex-direction: column;
+		padding: 25px;
+		width: fit-content;
+		& span,
+		& label {
+			margin-bottom: 25px;
+		}
+		& form {
+			display: flex;
+			& input {
+				width: 100%;
+			}
+		}
+	}
+
+	&__link {
+		border-top: 1px solid $primary-color;
+		width: 100%;
+		&-legals a {
+			margin-left: 25px;
+		}
+		&-social a {
+			margin-right: 25px;
+		}
+	}
+}

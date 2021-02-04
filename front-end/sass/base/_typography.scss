@@ -1,0 +1,82 @@
+// couleurs des polices
+a,
+body,
+option,
+select,
+.fab,
+.far,
+.fas {
+	color: $primary-color;
+}
+button,
+.btn {
+	color: white;
+}
+
+// style de la police
+a,
+button,
+h1,
+h2,
+h3,
+label,
+select,
+input,
+option,
+.btn {
+	font-family: "Grandstander", cursive;
+}
+
+// taille de la police
+body,
+option,
+select {
+	font-size: 17px; // largeur minimale pour une bonne accessibilité
+}
+h1 {
+	font-size: 40px;
+	margin-right: 10px;
+}
+h2 {
+	font-size: 30px;
+	margin-bottom: 25px;
+}
+h3,
+.navbar a,
+.name,
+.price {
+	font-size: 25px;
+}
+label,
+button {
+	font-size: 20px;
+}
+.fab,
+.far,
+.fas {
+	font-size: 35px;
+}
+
+// grosseur de la police
+a,
+h1,
+h2,
+h3,
+.btn {
+	font-weight: 600;
+}
+
+// alignement du texte
+p {
+	text-align: justify;
+}
+.text-center {
+	text-align: center;
+}
+
+// transformation du texte
+a,
+h2 {
+	text-decoration: none;
+	text-transform: uppercase;
+}

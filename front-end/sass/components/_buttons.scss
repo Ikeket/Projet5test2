@@ -1,0 +1,25 @@
+button,
+.btn {
+	background-color: $tertiary-color;
+	border: none;
+	width: 50px;
+	@include flex-CC;
+}
+
+input {
+	width: 150px;
+}
+
+select {
+	padding: 10px;
+}
+
+button,
+input,
+option,
+select,
+.btn {
+	border: 2px solid $primary-color;
+	height: 50px;
+	@include border-box;
+}
