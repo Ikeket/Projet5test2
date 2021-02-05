@@ -117,10 +117,10 @@ addToCartButtonsDOM.forEach((addToCartButtonDOM) => {
 		const isInCart = cart.filter((cartItem) => cartItem.name === product.name).length > 0;
 
 		if (!isInCart) {
-			cart.push(product);
-			localStorage.setItem("cart", JSON.stringify(cart));
-			addToCartButtonDOM.innerText = "In Cart";
-			addToCartButtonDOM.disabled = true;
+			// cart.push(product);
+			// localStorage.setItem("cart", JSON.stringify(cart));
+			// addToCartButtonDOM.innerText = "In Cart";
+			// addToCartButtonDOM.disabled = true;
 
 			const cartItemsDOM = cartDOM.querySelectorAll(".cart__item");
 			cartItemsDOM.forEach((cartItemDOM) => {
@@ -192,3 +192,45 @@ addToCartButtonsDOM.forEach((addToCartButtonDOM) => {
 		}
 	});
 });
+
+// // initialise la variable CART
+// let cart = JSON.parse(localStorage.getItem(teddy)) || [];
+// console.log(cart);
+
+// // vérifie si l'objet est bien dans le panier
+// let isInCart = false; // initialise la variable comme fausse
+// console.log("pas de le panier");
+
+// // ajoute l'objet dans le panier
+// let addToCart = document.querySelector(".add-to-cart");
+// console.log("variable addToCart");
+
+// // vérifie que l'objet est dans le panier et si c'est le cas, empêche de le remettre
+// if (cart._id === productId) {
+// 	addToCart.innerText = `Déjà dans le panier`;
+// 	addToCart.disabled = true;
+// 	console.log("bouton adopté désactivé");
+// } else {
+
+// 	addToCart.addEventListener("click", () => {
+// 		const productObject = {
+// 			imageUrl: teddy.imageUrl,
+// 			name: teddy.name,
+// 			description: teddy.description,
+// 			price: teddy.price,
+// 			quantity: 1,
+// 			_id: teddy._id,
+// 			color: teddy.colors,
+// 		};
+// 		cart.push(productObject);
+// 		isInCart = true;
+// 		console.log("ajouté");
+// 		addToCart.innerText = "Adopté !";
+// 		addToCart.disabled = true;
+// 		console.log(productObject);
+// 		localStorage.setItem(`teddy`, JSON.stringify(productObject));
+// 		console.log("Test : ");
+// 	});
+// }
+
+// ce qui se passe quand on click sur "ajouter au panier quand disponible"

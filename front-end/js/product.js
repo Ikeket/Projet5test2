@@ -1,5 +1,4 @@
 "use strict";
-view = "product";
 
 let returnIndex = document.createElement("h2");
 returnIndex.innerHTML += `<a href="index.html"><span class="fas fa-chevron-left"></span> Accueil</a>`;
@@ -31,22 +30,17 @@ fetch(`http://localhost:3000/api/teddies/${productId}`)
 		}</button>`;
 		teddyProduct.appendChild(teddyBox);
 		let teddyColors = document.getElementById("teddy__colors");
-		product.colors.forEach(function (product_color) {
+		teddy.colors.forEach(function (product_color) {
 			teddyColors.innerHTML += `<option value="${product_color}">${product_color}</option>`;
 		});
 
-		let isInCart = false;
-		console.log("salut");
+		// Je souhaite ajouter l'objet dans mon panier et le mettre dans mon localstorage.
+		let cart = JSON.parse(localStorage.getItem("teddy")) || [];
 
+		// Pour cela, je dois créer un objet nommé "teddyObject" afin que le localstorage puisse récupérer ses informations
 		let addToCart = document.querySelector(".add-to-cart");
-		if (cart._id === productId) {
-			console.log("déjà dans le panier");
-			addToCart.innerText = "Adopté !";
-			addToCart.disabled = true;
-		}
-
 		addToCart.addEventListener("click", () => {
-			const productObject = {
+			let teddyObject = {
 				imageUrl: teddy.imageUrl,
 				name: teddy.name,
 				description: teddy.description,
@@ -56,16 +50,13 @@ fetch(`http://localhost:3000/api/teddies/${productId}`)
 				color: teddy.colors,
 			};
 
-			if (!isInCart) {
-				isInCart = true;
-				console.log("ajouté");
-				addToCart.innerText = "Adopté !";
-				addToCart.disabled = true;
-				console.log(productObject);
-				localStorage.setItem("teddy", JSON.stringify(productObject));
-			}
+			cart.push(teddyObject);
+			localStorage.setItem("teddy", JSON.stringify(cart));
+			console.log(`${teddy.name} a bien été ajouté au panier`);
 		});
 
+		console.log(cart);
+		console.log(localStorage);
 		let dynamicTitle = document.querySelector("title");
 		dynamicTitle.textContent = `Orinours, découvrez ${teddy.name}`;
 	});

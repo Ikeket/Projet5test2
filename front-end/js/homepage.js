@@ -1,6 +1,4 @@
 "use strict";
-view = "index";
-console.log(view);
 
 let productBox = document.createElement("article");
 productBox.className = "product";
