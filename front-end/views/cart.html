@@ -12,7 +12,7 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
 		/>
-		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../sass/main.css" />
 		<script src="https://kit.fontawesome.com/022660c1b2.js" crossorigin="anonymous"></script>
 
 		<title></title>
@@ -30,9 +30,10 @@
 					<ul class="navbar__link">
 						<li><a href="./orders.html" aria-label="commandes">Mes commandes</a></li>
 						<li>
-							<a href="./cart.html" aria-label="panier"
-								><i class="fas fa-shopping-cart"></i
-							></a>
+							<a href="./cart.html" aria-label="panier">
+								<i class="fas fa-shopping-cart"></i>
+								<span class="cart-number"></span>
+							</a>
 						</li>
 						<li>
 							<a href="#account" aria-label="compte"
@@ -87,6 +88,7 @@
 			</div>
 		</footer>
 		<script src="../js/template_site.js"></script>
+		<script src="../js/utils.js"></script>
 		<script src="../js/cart.js"></script>
 	</body>
 </html>

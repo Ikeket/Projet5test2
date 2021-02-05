@@ -174,6 +174,7 @@ a,
 body,
 option,
 select,
+#teddy__quantity,
 .fab,
 .far,
 .fas {
@@ -200,7 +201,8 @@ option,
 
 body,
 option,
-select {
+select,
+#teddy__quantity {
   font-size: 17px;
 }
 
@@ -254,11 +256,8 @@ h2 {
   text-transform: uppercase;
 }
 
-button,
-.btn {
+button {
   background-color: #8d5008;
-  border: none;
-  width: 50px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -281,12 +280,16 @@ select {
 button,
 input,
 option,
-select,
-.btn {
-  border: 2px solid #8d5617;
+select {
+  border-color: #8d5617;
   height: 50px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+#teddy__quantity {
+  padding-left: 10px;
+  width: 50px;
 }
 
 .product {
@@ -303,10 +306,10 @@ select,
 .product__box {
   background-color: none;
   margin: 20px;
-  min-width: 350px;
+  height: 450px;
+  width: 450px;
   -webkit-transition: 500ms linear background-color;
   transition: 500ms linear background-color;
-  width: 30%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 0px 0px 12px 2px rgba(212, 211, 211, 0.308);
@@ -333,7 +336,6 @@ select,
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  width: 100%;
   align-items: center;
   display: flex;
   -webkit-box-pack: center;
@@ -342,21 +344,32 @@ select,
 }
 
 .product__box__text {
-  padding: 20px;
-  height: 70px;
+  height: 60px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.product__box-price {
+.product__box__text-price {
   margin-left: 15px;
 }
 
 .product__box img {
   border-radius: 15px 15px 0 0;
-  height: 230px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
      object-position: top;
+  height: 380px;
   width: 100%;
 }
 

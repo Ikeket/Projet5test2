@@ -1,6 +1,7 @@
-let siteTitle = document.createElement("h2");
-siteTitle.innerHTML += `Qu'attendez-vous pour craquer ?`;
-createContainer.appendChild(siteTitle);
+"use strict";
+view = "index";
+console.log(view);
+
 let productBox = document.createElement("article");
 productBox.className = "product";
 createContainer.appendChild(productBox);
@@ -11,19 +12,15 @@ fetch(`http://localhost:3000/api/teddies`)
 		let teddies = product;
 		teddies.forEach((teddy) => {
 			let teddyBox = document.createElement("div"); // créé la box qui contient chaque teddy
-			teddyBox.className = "product__box";
+			teddyBox.className = "product__box text-center";
+			teddyBox.innerHTML += `
+			<a href="teddy.html?id=${teddy._id}">
+				<img src="${teddy.imageUrl}" class="teddy__picture" alt="Produit : ${teddy.name}" width="450">
+				<span class="product__box__text">
+						<span class="product__box__text-name name">${teddy.name}</span>
+						<span class="product__box__text-price price">${teddy.price / 100}€</span>
+				</span>
+			</a>`;
 			productBox.appendChild(teddyBox);
-			let teddyLink = document.createElement("a"); // créé un lien qui redirige sur le teddy
-			teddyLink.className = "product__box__link";
-			teddyLink.href = `teddy.html?id=${teddy._id}`;
-			teddyLink.setAttribute("target", "_blank");
-			teddyLink.innerHTML += `<span class="product__box__text"><span class="product__box-name name">${
-				teddy.name
-			}</span><span class="product__box-price price">${
-				teddy.price / 100
-			}€</span></span><img src="${teddy.imageUrl}" class="teddy__picture" alt="Produit : ${
-				teddy.name
-			}" height="450">`;
-			teddyBox.appendChild(teddyLink);
 		});
 	});

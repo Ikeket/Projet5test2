@@ -1,8 +1,5 @@
-button,
-.btn {
+button {
 	background-color: $tertiary-color;
-	border: none;
-	width: 50px;
 	@include flex-CC;
 }
 
@@ -17,9 +14,13 @@ select {
 button,
 input,
 option,
-select,
-.btn {
-	border: 2px solid $primary-color;
+select {
+	border-color: $primary-color;
 	height: 50px;
 	@include border-box;
+}
+
+#teddy__quantity {
+	padding-left: 10px;
+	width: 50px;
 }
