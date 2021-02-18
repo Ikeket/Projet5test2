@@ -12,7 +12,8 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
 		/>
-		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../sass/main.css" />
+		<!-- <link rel="stylesheet" href="../css/main.css" /> -->
 		<script src="https://kit.fontawesome.com/022660c1b2.js" crossorigin="anonymous"></script>
 
 		<title></title>
@@ -45,7 +46,50 @@
 			</div>
 		</header>
 
-		<main id="main"></main>
+		<main id="main">
+			<section id="main__container" class="container">
+				<form id="form-user">
+					<fieldset class="question" id="title" data-validation="vrule_btn_required">
+						<input
+							type="radio"
+							name="title"
+							value="Monsieur"
+							id="Monsieur"
+							class="radio"
+						/><label for="Monsieur" class="single-line">Monsieur</label>
+						<input
+							type="radio"
+							name="title"
+							value="Madame"
+							id="Madame"
+							class="radio"
+						/><label for="Madame" class="single-line">Madame</label>
+					</fieldset>
+
+					<div class="question">
+						<label for="firstName" class="single-line">Nom</label>
+						<input type="text" id="firstName" name="firstName" />
+					</div>
+
+					<div class="question">
+						<label for="secondName" class="single-line">Prénom</label>
+						<input type="text" id="secondName" name="secondName" />
+					</div>
+
+					<div class="question">
+						<label for="Adresse">Adresse</label>
+						<input type="text" id="Adresse" name="Adresse" />
+					</div>
+
+					<div class="question">
+						<label for="email">Email Address</label>
+						<input type="email" id="email" name="email" />
+					</div>
+
+					<button type="form-user-btn btn">Submit</button>
+				</form>
+			</section>
+		</main>
 
 		<footer id="footer">
 			<div class="footer container">
@@ -87,8 +131,6 @@
 				</div>
 			</div>
 		</footer>
-		<script src="../js/template_site.js"></script>
-		<script src="../js/utils.js"></script>
-		<script src="../js/cart.js"></script>
+		<script type="module" src="../js/cart.js"></script>
 	</body>
 </html>

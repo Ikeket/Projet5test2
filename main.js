@@ -254,3 +254,64 @@ addToCartButtonsDOM.forEach((addToCartButtonDOM) => {
 // }
 
 // ce qui se passe quand on click sur "ajouter au panier quand disponible"
+
+("use strict");
+
+let A = { btn: "A", qty: 0, price: 1000 };
+let B = { btn: "B", qty: 0, price: 1500 };
+let C = { btn: "C", qty: 0, price: 1750 };
+let totalPrice = [];
+
+let cart = JSON.parse(localStorage.getItem("btn")) || [];
+if (localStorage.getItem("btn") === null) {
+	cart.push(A, B, C);
+	localStorage.setItem("btn", JSON.stringify(cart));
+}
+console.log(cart);
+
+let clickA = document.getElementById("buttonA");
+clickA.addEventListener("click", function ButtonClicked() {
+	if (cart[0].qty != 0 && cart[0].qty) {
+		cart[0].qty = cart[0].qty + 1;
+	} else {
+		cart[0].qty = cart[0].qty + 1;
+	}
+	localStorage.setItem("btn", JSON.stringify(cart));
+	return ButtonClicked;
+});
+
+let buttons = document.querySelectorAll("button");
+
+// buttons.forEach((button) => {
+//  console.log(button.innerText);
+//  button.addEventListener("click", (clic) => {
+//      let index = cart.indexOf();
+//      console.log(index);
+//      console.log(cart);
+//  });
+// });
+
+cart.forEach((element, i) => {
+	let display = document.createElement("div");
+	display.className = "div__box";
+	display.innerHTML = `Voici le bouton ${element.btn}.
+    <br>Tu as cliqué ${element.qty} fois dessus.
+    <br>Le bouton ${element.btn} coûte ${element.price / 100}€ pièce.
+    <br>Pour ${element.qty}, cela te fera ${(element.price / 100) * element.qty} €`;
+	main.appendChild(display);
+	let total = (element.price / 100) * element.qty;
+	totalPrice.push(total);
+	display.addEventListener("click", () => {
+		console.log(i);
+	});
+});
+
+console.log(totalPrice);
+let displayTP = document.createElement("div");
+let finalPrice = 0;
+for (let i = 0; i < totalPrice.length; i++) {
+	finalPrice = finalPrice + totalPrice[i];
+}
+
+displayTP.innerHTML = `Le total de votre commande est de : ${finalPrice}€`;
+main.appendChild(displayTP);

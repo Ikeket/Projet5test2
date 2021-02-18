@@ -1,5 +1,7 @@
 "use strict";
 
+import { createContainer } from "./utils.js";
+
 let productBox = document.createElement("article");
 productBox.className = "product";
 createContainer.appendChild(productBox);

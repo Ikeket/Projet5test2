@@ -1,10 +1,10 @@
 "use strict";
 
+import { productId, cart, createContainer } from "./utils.js";
+
 fetch(`http://localhost:3000/api/teddies/${productId}`)
 	.then((response) => response.json())
-	.then(function (product) {
-		let teddy = product; // transforme produit en teddy
-
+	.then(function (teddy) {
 		// affiche le teddy
 		let teddyProduct = document.createElement("article");
 		teddyProduct.className = "teddy";
@@ -30,37 +30,43 @@ fetch(`http://localhost:3000/api/teddies/${productId}`)
 		teddy.colors.forEach(function (product_color) {
 			teddyColors.innerHTML += `<option value="${product_color}">${product_color}</option>`;
 		});
-
-		// Je souhaite ajouter l'objet dans mon panier et le mettre dans mon localstorage.
-		let cart = [];
-		// fonction qui vérifie si le produit est déjà dans le panier : si c'est le cas, désactivation du bouton "adopter"
-		// Pour cela, je dois créer un objet nommé "teddyObject" afin que le localstorage puisse récupérer ses informations
-		let addToCart = document.querySelector(".add-to-cart");
-		addToCart.addEventListener("click", () => {
-			let teddyObject = {
-				imageUrl: teddy.imageUrl,
-				name: teddy.name,
-				description: teddy.description,
-				price: teddy.price / 100,
-				quantity: 1,
-				_id: teddy._id,
-				color: teddy.colors,
-			};
-
-			// envoie le teddy dans la variable cart --> réfléchir à l'utilité de cette variable, je sais qu'elle sera utile, mais je ne sais pas pourquoi è_é
-			cart.push(teddyObject);
-			console.log(cart);
-
-			localStorage.setItem(`teddy`, JSON.stringify(cart)); // envoie le teddy dans le panier
-			// faire en sorte que si un teddy est déjà logué, on rajoute +1 à teddy afin de pouvoir logguer les différentes occurences des teddies. Comme ça, je pourrais parser le localstorage 'teddy[i]' avec une variable for i = 0; i < localstorage.lenght; i++)
-			// teddy + 1 = teddy un truc du genre ^^
-			console.log(`${teddyObject.name} a bien été ajouté au panier`);
-		});
-
-		console.log(cart);
-		console.log(localStorage);
 		let dynamicTitle = document.querySelector("title");
 		dynamicTitle.textContent = `Orinours, découvrez ${teddy.name}`;
+
+		// *************** création et gestion du local storage *************** //
+
+		let teddyObject = {
+			name: teddy.name,
+			quantity: 1,
+			imageUrl: teddy.imageUrl,
+			description: teddy.description,
+			price: teddy.price / 100,
+			_id: teddy._id,
+			color: teddyColors.value,
+		};
+
+		let addToCart = document.querySelector(".add-to-cart");
+		addToCart.addEventListener("click", () => {
+			if (localStorage.length === 0) {
+				cart.push(teddyObject);
+				localStorage.setItem("teddy", JSON.stringify(cart));
+			} else {
+				for (let i = 0; i < cart.length; i++) {
+					if (cart[i].name === teddyObject.name) {
+						console.log(`ils ont le même prénom ${cart[i].name}`);
+						cart[i].quantity += 1;
+						localStorage.setItem("teddy", JSON.stringify(cart));
+						break;
+					} else {
+						cart.push(teddyObject);
+						localStorage.setItem("teddy", JSON.stringify(cart));
+						console.log(`test ${teddy.name}`);
+						break;
+					}
+				}
+			}
+			// window.location.reload();
+		});
 	});
 
 let returnIndex = document.createElement("h2");

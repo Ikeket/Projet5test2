@@ -1,26 +1,30 @@
 button {
 	background-color: $tertiary-color;
+	min-height: 50px;
+	min-width: 50px;
 	@include flex-CC;
 }
 
-input {
-	width: 150px;
-}
-
-select {
-	padding: 10px;
-}
-
-button,
-input,
 option,
 select {
-	border-color: $primary-color;
-	height: 50px;
+	min-height: 50px;
+	min-width: 50px;
 	@include border-box;
 }
 
-#teddy__quantity {
-	padding-left: 10px;
-	width: 50px;
-}
+// select {
+// 	padding: 10px;
+// }
+
+// button,
+// input,
+// option,
+// select {
+// 	border-color: $primary-color;
+
+// }
+
+// #teddy__quantity {
+// 	padding-left: 10px;
+// 	width: 50px;
+// }
