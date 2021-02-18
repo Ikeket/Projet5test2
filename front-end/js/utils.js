@@ -4,14 +4,11 @@
 // ********* exported variables & constants ********* //
 
 export const productId = new URLSearchParams(window.location.search).get("id");
-// export const urlAPI = `http://localhost:3000/api/teddies`;
-
 export let cart = JSON.parse(localStorage.getItem("teddy")) || [];
-// export let clearCart = cart.clear();
 export let createContainer = document.getElementById("main__container");
-
 export let sumBuying = JSON.parse(localStorage.getItem("prices"));
 
+// à enlever quand le formulaire utilisateur sera géré
 let firstName = "Jane";
 let lastname = "Doe";
 let address = "1 rue de la Rue";
@@ -23,5 +20,17 @@ export const userData = {
 	address: `${address}, ${country}`,
 	email: email,
 };
+
 // ************************************************** //
 // *************** exported functions *************** //
+
+let teddyQuantityInCart = function total() {
+	let sum = 0;
+	for (let i = 0; i < cart.length; i++) {
+		sum = sum + cart[i].quantity;
+	}
+	return sum;
+};
+teddyQuantityInCart();
+let updateCart = document.querySelector(".cart-number");
+updateCart.textContent = `${teddyQuantityInCart()}`;

@@ -25,3 +25,7 @@ section {
 	width: 80%;
 	@include border-box;
 }
+
+.error-message {
+	display: none;
+}

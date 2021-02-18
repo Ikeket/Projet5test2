@@ -28,6 +28,10 @@
 			&-quantity {
 				display: flex;
 				flex: row;
+				align-items: center;
+				& span {
+					margin-left: 10px;
+				}
 			}
 		}
 		&-price {

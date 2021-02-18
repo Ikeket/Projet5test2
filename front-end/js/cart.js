@@ -23,6 +23,8 @@ fetch(`http://localhost:3000/api/teddies/`)
                             <p>En stock</p>
                             <div class="cart__box-text-quantity">
                                 <p>Quantité : ${teddyInCart.quantity}</p>
+								<span class="fas fa-plus fa-xs"></span>
+								<span class="fas fa-minus fa-xs"></span>
                             </div>
                         </div>
                     <div  class="cart__box-price">Total : ${
