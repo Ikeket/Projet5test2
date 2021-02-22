@@ -47,9 +47,14 @@ fetch(`http://localhost:3000/api/teddies/${productId}`)
 
 		let addToCart = document.querySelector(".add-to-cart");
 		addToCart.addEventListener("click", () => {
+			let teddyAdded = document.createElement("div");
+			teddyAdded.innerHTML += `${teddy.name} a bien été ajouté à votre panier`;
+			teddyBox.append(teddyAdded);
+
 			if (localStorage.length === 0) {
 				cart.push(teddyObject);
 				localStorage.setItem("teddy", JSON.stringify(cart));
+				window.location.reload();
 			} else {
 				for (let i = 0; i < cart.length; i++) {
 					if (teddyObject.name === cart[i].name) {
