@@ -15,5 +15,6 @@ let teddyQuantityInCart = function total() {
 	return sum;
 };
 teddyQuantityInCart(); // rappeler la fonction dans product.js
+
 let updateCart = document.querySelector(".cart-number");
 updateCart.textContent = `${teddyQuantityInCart()}`;
