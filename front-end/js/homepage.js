@@ -12,19 +12,19 @@ fetch(`http://localhost:3000/api/teddies`)
 			let teddyBox = document.createElement("div");
 			teddyBox.className = "product__box text-center";
 			teddyBox.innerHTML += `
-		<a href="teddy.html?id=${teddy._id}">
-			<img src="${teddy.imageUrl}" class="teddy__picture" alt="Produit : ${teddy.name}" width="450">
-			<span class="product__box__text">
-					<span class="product__box__text-name name">${teddy.name}</span>
-					<span class="product__box__text-price price">${teddy.price / 100}€</span>
-			</span>
-		</a>`;
+			<a href="teddy.html?id=${teddy._id}">
+				<img src="${teddy.imageUrl}" class="teddy__picture" alt="Produit : ${teddy.name}" width="450">
+				<span class="product__box__text">
+						<span class="product__box__text-name name">${teddy.name}</span>
+						<span class="product__box__text-price price">${teddy.price / 100}€</span>
+				</span>
+			</a>`;
 			teddiesBox.appendChild(teddyBox);
 		});
 	})
 	.catch((error) => {
 		messageError();
-		console.error("message : " + error);
+		console.error(error);
 	});
 
 /*
