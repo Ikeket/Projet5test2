@@ -1,5 +1,5 @@
 "use strict";
-import { createContainer } from "./utils.js";
+import { createContainer, messageError } from "./utils.js";
 
 fetch(`http://localhost:3000/api/teddies`)
 	.then((response) => response.json())
@@ -22,7 +22,10 @@ fetch(`http://localhost:3000/api/teddies`)
 			teddiesBox.appendChild(teddyBox);
 		});
 	})
-	.catch((error) => console.error("message : " + error));
+	.catch((error) => {
+		messageError();
+		console.error("message : " + error);
+	});
 
 /*
 Améliorations / Improvement

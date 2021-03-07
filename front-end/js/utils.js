@@ -18,3 +18,11 @@ teddyQuantityInCart(); // rappeler la fonction dans product.js
 
 let updateCart = document.querySelector(".cart-number");
 updateCart.textContent = `${teddyQuantityInCart()}`;
+
+export function messageError() {
+	let messageError = document.createElement("div");
+	messageError.className = "container";
+	messageError.innerHTML +=
+		"Vous avez rencontré une erreur, veuillez recharger la page. Si le problème persiste, contactez un administrateur.";
+	createContainer.appendChild(messageError);
+}
