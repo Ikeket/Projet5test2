@@ -1,15 +1,29 @@
 "use strict";
 
 export let createContainer = document.getElementById("main__container");
+// FR : permet de récupérer l'id du produit
+// EN : allows to retrieve the product ID
 export const productId = new URLSearchParams(window.location.search).get("id");
 
-// variables liées aux données dont nous aurons besoin dans le localStorage
-export const orderData = JSON.parse(localStorage.getItem("orderData"));
+export const orderData = JSON.parse(localStorage.getItem("order"));
 export let cart = JSON.parse(localStorage.getItem("cart")) || [];
-export let sumBuying = JSON.parse(localStorage.getItem("total"));
+export let total = JSON.parse(localStorage.getItem("total"));
 
-// permet d'afficher le nombre de produits contenus dans le panier
-// on exporte pas la fonction, car son résultat apparaît sur toutes les pages du site :)
+// FR : permet de calculer le total du panier
+// EN : allows to calculate the cart'total
+export function sum() {
+	let sum = 0;
+	for (let i = 0; i < cart.length; i++) {
+		let price = Number(cart[i].price);
+		let quantity = Number(cart[i].quantity);
+		let sumTeddy = price * quantity;
+		sum = sum + sumTeddy;
+	}
+	localStorage.setItem("total", sum);
+}
+
+// FR : affiche le nombre de produits que le panier contient
+// EN : displays the number of products that the cart contains
 export function teddiesInCart() {
 	let sum = 0;
 	for (let i = 0; i < cart.length; i++) {

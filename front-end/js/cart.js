@@ -1,5 +1,5 @@
 "use strict";
-import { cart, createContainer, messageError, otherError } from "./utils.js";
+import { cart, createContainer, messageError, otherError, sum, total } from "./utils.js";
 
 // FR : vérifie ce qu'il y a dans le panier pour afficher le contenu du panier ou un message d'erreur à l'utilisateur
 // EN : checks what is in the cart to display the contents of the cart or an error message to the user
@@ -28,16 +28,9 @@ if (cart.length !== 0) {
 		cartBox.append(displayCart);
 	});
 
-	// FR : permet de calculer le total du panier et l'envoie dans le localStorage
-	// EN : allows to calculate cart's total and sends it to the localStorage
-	let total = 0;
-	for (let i = 0; i < cart.length; i++) {
-		let price = Number(cart[i].price);
-		let quantity = Number(cart[i].quantity);
-		let sumTeddy = price * quantity;
-		total += sumTeddy;
-		localStorage.setItem("total", JSON.stringify(total));
-	}
+	// FR : appelle la fonction sum qui permet de calculer le total du panier et l'envoie dans le localStorage
+	// EN : calls sum function who allows to calculate cart's total and sends it to the localStorage
+	sum();
 	let displayTotalCart = document.createElement("div");
 	displayTotalCart.className = "cart__total";
 	displayTotalCart.innerHTML += `Le total de votre panier s'élève à ${total}€ `;
