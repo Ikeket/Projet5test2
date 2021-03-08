@@ -1,4 +1,9 @@
-# Projet5test2
+ORINOCO - Projet 5 : Openclassrooms
+Créer un site d'e-commerce
 
-"use strict" : utilisé afin de ne laisser passer aucune erreur dans notre code.
-Les fonctions et variables qui sont utilisées dans plus d'un fichier ont été mises dans le fichier utils.js puis importées dans les autres fichiers afin d'avoir un code plus clair et sans répétition.
+Langages : HTML - CSS(Sass) - Vanilla JS
+
+
+1) Cloner le projet
+2) Faire npm install
+3) Lancer le projet avec la commande npm start
